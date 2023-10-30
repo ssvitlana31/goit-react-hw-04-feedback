@@ -11,7 +11,7 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const onLeaveFeedback = ({ name }) => {
+  const handleLeaveFeedback = name => {
     switch (name) {
       case 'good':
         setGood(prev => prev + 1);
@@ -38,10 +38,7 @@ export const App = () => {
   return (
     <Container>
       <Section title="Please leave feedback">
-        <FeedbackOptions
-          options={Object.keys}
-          onLeaveFeedback={onLeaveFeedback}
-        />
+        <FeedbackOptions onLeaveFeedback={handleLeaveFeedback} />
       </Section>
       <Section>
         {countTotalFeedback() > 0 ? (
@@ -49,8 +46,8 @@ export const App = () => {
             good={good}
             neutral={neutral}
             bad={bad}
-            total={countTotalFeedback}
-            positiveFeedback={countPositivFeedbackPersentage}
+            total={countTotalFeedback()}
+            positiveFeedback={countPositivFeedbackPersentage()}
           />
         ) : (
           <Notification message="There is no feedback" />

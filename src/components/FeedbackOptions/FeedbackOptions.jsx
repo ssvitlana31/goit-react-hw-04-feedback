@@ -8,7 +8,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
     <WrapperFeedback>
       {options.map((option, index) => {
         return (
-          <Button key={index} onLeaveFeedback={() => onLeaveFeedback(option)}>
+          <Button key={index} onClick={() => onLeaveFeedback(option)}>
             {option}
           </Button>
         );
