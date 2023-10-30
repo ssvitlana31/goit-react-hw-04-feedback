@@ -38,7 +38,10 @@ export const App = () => {
   return (
     <Container>
       <Section title="Please leave feedback">
-        <FeedbackOptions onLeaveFeedback={handleLeaveFeedback} />
+        <FeedbackOptions
+          options={['good', 'neutral', 'bad']}
+          onLeaveFeedback={handleLeaveFeedback}
+        />
       </Section>
       <Section>
         {countTotalFeedback() > 0 ? (
